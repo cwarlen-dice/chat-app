@@ -8,9 +8,9 @@ class RoomsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @room = Room.new(room_params)
     if @room.save
+      # binding.pry
       redirect_to root_path
     else
       render :new
@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, user_id: [])
+    params.require(:room).permit(:name, user_ids: [])
   end
 
 end
